@@ -1,24 +1,23 @@
 require 'sinatra'
 
 
-get '/' do 
+get '/' do
 	erb :index
 end
 
 
-get '/hello/:name/:surname' do |first, last| 
+get '/hello/:name/:surname' do  
 	puts params
-	"hello " + first +  " " + last
+	"hello " + params[:name] +  " " + params[:surname]
 end
-
 
 get '/whatsup' do
 	#only works if ?name=Stephen is on the end of the url
 	puts params
-	"whats up " + params[:color]
+	"whats up " + params[:phone	]
 end
 
-post '/form' do
+postx '/form' do
 	@carrots = params[:user]
 	puts params
 	erb :params
